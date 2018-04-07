@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="Login.css" />
+    <script>
+        function submit_handler(form) {
+            03
+            alert(form.anything.value);
+            04
+            return false;
+            05
+        }
+
+    </script> 
+          
+    <style type="text/css">
+        body {
+            background-color: #FFFACD;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background-color: dodgerblue;
+        }
+
+        h1 {
+            width: 100%;
+            color: white;
+            padding-bottom: 3%;
+            padding-top: 3%;
+            text-decoration: none;
+            text-align: center;
+            -webkit-margin-before: 0px;
+        }
+
+        p {
+            text-align: center;
+            padding: 0.5%;
+            font-size: 40px;
+        }
+
+        form {
+            font-size: 67px;
+            background-color: antiquewhite;
+            width: 40%;
+            border-radius: 30px;
+            margin-left: 30%;
+        }
+
+        input {
+            font-size: 50%;
+            background-color: silver;
+            margin-top: 10%;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        button {
+            border-radius: 20px;
+            padding: 9px;
+            width: 100%;
+            background-color: silver;
+            font-size: 25px;
+            color: white;
+            margin-left: 8%;
+            margin-bottom: 20%;
+        }
+
+        .Buttom {
+            margin-left: 122%;
+        }
+
+        .P {
+            text-align: left;
+            width: 10%;
+            font-size: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Laba3
+        </h1>
+    </header>
+    <div>
+        <p>@ViewData["error"]</p>
+    </div>
+    <div>
+        <form action="/Home/Login" method="post">
+            <ul>
+                <li> <input autofocus name="Login" type="text"></li>
+                <li> <input name="password" type="password"></li>
+                <li><button type="button" onclick='location.href="Registration"'>Регистрация</button></li>
+                <li><button class="Buttom" type="submit">Войти</button></li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>

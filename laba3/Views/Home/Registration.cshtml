@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="Registrtion.css" />
+    <script>
+        function submit_handler(form) {
+            03
+            alert(form.anything.value);
+            04
+            return false;
+            05
+        }
+    </script>
+    <style type="text/css">
+        body {
+            background-color: #FFFACD;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background-color: dodgerblue;
+        }
+
+        h1 {
+            width: 100%;
+            color: white;
+            padding-bottom: 3%;
+            padding-top: 3%;
+            text-decoration: none;
+            text-align: center;
+            -webkit-margin-before: 0px;
+        }
+
+        form {
+            font-size: 67px;
+            background-color: antiquewhite;
+            width: 40%;
+            border-radius: 30px;
+            margin-left: 30%;
+            margin-top: 0px;
+            padding-bottom: 20px;
+        }
+
+        input {
+            font-size: 50%;
+            background-color: silver;
+            display: block;
+        }
+
+        li {
+            display: inline-block;
+            height: 10px;
+        }
+
+        button {
+            border-radius: 0.8em;
+            padding: 0.4em;
+            width: 100%;
+            background-color: silver;
+            font-size: 0.376em;
+            color: white;
+            margin-left: 8%;
+            margin-bottom: 20%;
+        }
+
+        .Buttom {
+            margin-left: 60%;
+        }
+
+        p {
+            text-align: center;
+            padding: 0.5%;
+            font-size: 40px;
+        }
+
+        ul {
+            -webkit-padding-start: 40px;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+        }
+
+        label {
+            font-size: 20px;
+            display: inline-block;
+           
+        }
+
+        .Label {
+            color: @ViewData["color"];
+        }
+
+        .Input {
+            font-size: 10%;
+            background-color: silver;
+            display: inline-block;
+            width: 43%;
+            margin-left: 20px;
+            margin: 0px;
+        }
+
+        .Div {
+            display: block;
+            font-size: 60px;
+            margin-left: 45px;
+        }
+
+        br {
+            margin: 0px;
+        }
+
+        select {
+            font-size: 48%;
+            background-color: silver;
+            display: block;
+            width: 100%;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Laba3
+        </h1>
+    </header>
+    <div>
+        <p>Заполните форму</p>
+    </div>
+    <div>
+        <form action="/Home/Registration" method="POST">
+            <ul>
+                <li>
+                    <label for="Login">Логин</label>
+                    <input autofocus name="Login" type="text" required>
+                </li>
+                <li>
+                    <label for="password">Пароль</label>
+                    <input name="password" type="password" required>
+                </li>
+                <li>
+                    <label class="Label" for="password1">@ViewData["pass"]</label>
+                    <input name="password1" type="password" required>
+                </li>
+                <li>
+                    <label for="Name">Имя</label>
+                    <input autofocus name="Name" type="text" required>
+                </li>
+                <li>
+                    <label for="Email">Электронная почта</label>
+                    <input name="Email" type="email" required required placeholder="maksim290698@gmail.com">
+                </li>
+                <li>
+                    <label for="pol">Пол</label>
+                    <select name="pol" id="Gn" required>
+                        <option value="1">Мужской</option>
+                        <option value="2">Женский</option>
+                    </select>
+                </li>
+                <br>
+                <li>
+                    <label for="Age">Возраст</label>
+                    <input name="Age" type="text" required>
+                </li>
+
+                <li><button type="button" onclick='location.href="/Home/Index"'>Назад</button></li>
+                <li><button class="Buttom" type="submit">Регистрация</button></li>
+
+            </ul>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/Content/Index.css" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Views/Home/Login.css")" rel="stylesheet" type="text/css" />
+
+    <script src="main.js"></script>
+    <style type="text/css">
+        body {
+            background-color: #FFFACD;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background-color: dodgerblue;
+        }
+
+        h1 {
+            width: 100%;
+            color: white;
+            padding-bottom: 3%;
+            padding-top: 3%;
+            text-decoration: none;
+            text-align: center;
+            -webkit-margin-before: 0px;
+        }
+
+        p {
+            text-align: center;
+            padding: 5%;
+            font-size: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .Button {
+            width: 65%;
+        padding-left:28%;
+        }
+
+        button {
+            border-radius: 20px;
+            padding: 20px;
+            width: 65%;
+            background-color: dodgerblue;
+            font-size: 30px;
+            color: white;
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+            <h1>
+                Laba3 
+            </h1>
+    </header>
+    <div>
+        <p>Для продолжения работы вам
+           необходимо <a href="/Home/Registration">зарегистрироваться</a> 
+           или <a href="/Home/Login">войти</a></p>
+    </div>
+    <div class="Button">
+        <form>
+            <button type="button" onclick='location.href="/Home/Registration"'>Регистрация</button>
+        </form>
+        <br>
+        <br>
+        <form>
+            <button type="button" onclick='location.href="/Home/Login"'>Войти</button>
+        </form>
+    </div>
+</body>
+</html>
