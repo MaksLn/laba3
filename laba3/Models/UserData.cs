@@ -7,42 +7,34 @@ namespace laba3.Models
 {
     public class UserData
     {
-        string _Login;
-        string _password;
-        string _Name;
-        string _Email;
-        string _age;
-        string _Gn;
-        DateTime _dateTime;
-
         public UserData(string Login, string password, string Name, string Email, string age, string Gn, DateTime dateTime)
         {
-            _Login = Login ?? throw new ArgumentNullException(nameof(Login));
-            _password = password ?? throw new ArgumentNullException(nameof(password));
-            _Name = Name ?? throw new ArgumentNullException(nameof(Name));
-            _Email = Email ?? throw new ArgumentNullException(nameof(Email));
-            _age = age ?? throw new ArgumentNullException(nameof(age));
-            _Gn = Gn ?? throw new ArgumentNullException(nameof(Gn));
-            _dateTime = dateTime;
+            this.Login = Login ?? throw new ArgumentNullException(nameof(Login));
+            Password = password ?? throw new ArgumentNullException(nameof(password));
+            this.Name = Name ?? throw new ArgumentNullException(nameof(Name));
+            this.Email = Email ?? throw new ArgumentNullException(nameof(Email));
+            Age = age ?? throw new ArgumentNullException(nameof(age));
+            this.Gn = Gn ?? throw new ArgumentNullException(nameof(Gn));
+            DataTime = dateTime;
         }
 
-        public string Login { get { return _Login; } set{ _Login =value; } }
-        public string Password { get { return _password; } set { _password = value; } }
-        public string Name { get { return _Name; } set { _Name = value; } }
-        public string Email { get { return _Email; } set { _Email = value; } }
-        public string Age { get { return _age; } set { _age = value; } }
-        public string Gn { get { return _Gn; } set { _Gn = value; } }
-        public DateTime DataTime { get { return _dateTime; } set { _dateTime = value; } }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Age { get; set; }
+        public string Gn { get; set; }
+        public DateTime DataTime { get; set; }
 
         public override string ToString()
         {
-            return string.Format("{0},{1},{2},{3},{4},{5},{6}|",  _Login,
-          _password,
-          _Name,
-          _Email,
-          _age,
-           _Gn,
-           _dateTime);
+            return string.Format("{0},{1},{2},{3},{4},{5},{6}|",  Login,
+          Password,
+          Name,
+          Email,
+          Age,
+           Gn,
+           DataTime);
         }
     }
 }

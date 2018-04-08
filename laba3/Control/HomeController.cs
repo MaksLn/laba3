@@ -10,7 +10,9 @@ namespace laba3.Control
 {
     public class HomeController : Controller
     {
-       public IActionResult Index()
+        private string _login;
+        private string _Password;
+        public IActionResult Index()
         {
             return View();
         }
@@ -27,15 +29,18 @@ namespace laba3.Control
                 StreamReader reader = new StreamReader(new FileStream("data.txt", FileMode.Open));
                 string str = reader.ReadToEnd();
                 reader.Close();
-                string _Login=null, _password=null;
-                foreach(var a in str.Split("|"))
+                string _Login = null, _password = null;
+                foreach (var a in str.Split("|"))
                 {
                     _Login = a.Split(",").First();
                     _password = a.Split(",").Take(2).Last();
-               
+
                     if (_Login == Login && _password == password)
                     {
-                        return View("Views/Home/HomeUser.cshtml");
+                        _login = Login;
+                        _Password = password;
+                        var model = new Models.UserData(a.Split(",").Take(1).Last(), a.Split(",").Take(2).Last(), a.Split(",").Take(3).Last(), a.Split(",").Take(4).Last(), a.Split(",").Take(5).Last(), a.Split(",").Take(6).Last(), DateTime.Parse(a.Split(",").Take(7).Last()));
+                        return View("Views/Home/HomeUser.cshtml",model);
                     }
                     else if (_Login == Login)
                     {
@@ -74,7 +79,7 @@ namespace laba3.Control
                     return View();
                 }
             }
-            else if(password != null)
+            else if (password != null)
             {
                 ViewData["pass"] = "Пароли не совпадают";
                 ViewData["color"] = "red";
@@ -85,7 +90,29 @@ namespace laba3.Control
                 ViewData["pass"] = "Повторите пароль";
                 return View();
             }
-            return View("Views/Home/HomeUser.cshtml");
+            var model = new Models.UserData(Login, password, Name, Email, Age, pol, DateTime.Now);
+
+            return View("Views/Home/HomeUser.cshtml",model);
+        }
+
+        public IActionResult HomeUser()
+        {
+            StreamReader reader = new StreamReader(new FileStream("data.txt", FileMode.Open));
+            string str = reader.ReadToEnd();
+            reader.Close();
+            string _Login = null, _password = null;
+            foreach (var a in str.Split("|"))
+            {
+                _Login = a.Split(",").First();
+                _password = a.Split(",").Take(2).Last();
+
+                if (_Login == _login && _password == _Password)
+                {
+                    var model = new Models.UserData(a.Split(",").Take(1).Last(), a.Split(",").Take(2).Last(), a.Split(",").Take(3).Last(), a.Split(",").Take(4).Last(), a.Split(",").Take(5).Last(), a.Split(",").Take(6).Last(), DateTime.Parse(a.Split(",").Take(7).Last()));
+                    return View();
+                }
+            }
+            return View();
         }
     }
 }

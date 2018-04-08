@@ -1,6 +1,132 @@
-﻿<form action="/Home/Login" method="post">
-    <ul>
-        
-        <li><button type="button" onclick='location.href="Login"'>Назад</button></li>
+﻿@model laba3.Models.UserData
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="HomeUser.css" />
+    <script src="main.js"></script>
+    <style type="text/css">
+        body {
+            background-color: #FFFACD;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background-color: dodgerblue;
+            display: inline-block;
+        }
+
+        h1 {
+            width: 90%;
+            color: white;
+            padding-bottom: 3%;
+            padding-top: 3%;
+            text-decoration: none;
+            text-align: center;
+            -webkit-margin-before: 0px;
+            display: inline-block;
+        }
+
+        ul {
+            -webkit-padding-start: 40px;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            padding-top: 20px;
+            width: 23%;
+            display: inline-block;
+        }
+
+        .Div {
+            display: inline;
+            font-size: 60px;
+            margin-left: 35%;
+        }
+
+        li {
+            display: block;
+            height: 55px;
+            font-size: 30px;
+        }
+
+        .Ul {
+            -webkit-padding-start: 0px;
+        }
+
+        form {
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            -webkit-margin-start: 0px;
+            display: inline-block;
+            height: 140px;
+            width: 118.1px;
+            background-color: dodgerblue;
+            border: 0px;
+        }
+
+        button {
+            height: 100%;
+            font-size: 10px;
+            width: 100%;
+            background-color: dodgerblue;
+            font-size: 20px;
+            color: white;
+            border: 0px;
+        }
+
+            button:hover {
+                background-color: steelblue;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Laba3
+        </h1>
+        <form action="/Home/Index">
+            <button type="button" onclick='location.href="/Home/Index"'>Выход</button>
+        </form>
+    </header>
+    <div class="Div">Ваш профиль</div>
+    <div>
+        <ul>
+            <li>Логин: </li>
+            <li>Пароль: </li>
+            <li>Имя: </li>
+            <li>Почта: </li>
+            <li>Возраст: </li>
+            <li>Пол: </li>
+            <li>Время регистрации: </li>
         </ul>
-    </form>
+        <ul class="Ul">
+            <li>@Model.Login </li>
+            <li>@Model.Password</li>
+            <li>@Model.Name</li>
+            <li>@Model.Email</li>
+            <li>@Model.Age</li>
+            <li>@{ 
+              @if (Model.Gn=="1")
+              {
+                  Model.Gn = "мужской";
+              }
+              else
+              {
+                  Model.Gn = "женский";
+              }
+                @Model.Gn
+               }
+            </li>
+            <li>@Model.DataTime</li>
+        </ul>
+    </div>
+    <div class="Ul">
+
+    </div>
+</body>
+</html>
