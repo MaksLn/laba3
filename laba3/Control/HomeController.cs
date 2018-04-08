@@ -65,7 +65,9 @@ namespace laba3.Control
         string Age
        )
         {
+            ViewData["er"] = "Заполните форму";
             ViewData["color"] = "black";
+            ViewData["color2"] = "black";
             ViewData["pass"] = "Повторите пароль";
             if (password == password1 && password != null)
             {
@@ -76,6 +78,18 @@ namespace laba3.Control
                 }
                 catch (ArgumentNullException e)
                 {
+                    return View();
+                }
+                catch(ArgumentOutOfRangeException e)
+                {
+                    ViewData["color2"] = "red";
+                    ViewData["er"] = e.ParamName;
+                    return View();
+                }
+                catch(Exception e)
+                {
+                    ViewData["color2"] = "red";
+                    ViewData["er"] = "Некорректный возрост достуны только символы 0-120";
                     return View();
                 }
             }

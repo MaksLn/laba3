@@ -78,6 +78,7 @@
             text-align: center;
             padding: 0.5%;
             font-size: 40px;
+        color: @ViewData["color2"];
         }
 
         ul {
@@ -89,7 +90,7 @@
         label {
             font-size: 20px;
             display: inline-block;
-           
+
         }
 
         .Label {
@@ -131,7 +132,7 @@
         </h1>
     </header>
     <div>
-        <p>Заполните форму</p>
+        <p>@ViewData["er"]</p>
     </div>
     <div>
         <form action="/Home/Registration" method="POST">
