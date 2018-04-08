@@ -27,18 +27,16 @@ namespace laba3.Control
                 StreamReader reader = new StreamReader(new FileStream("data.txt", FileMode.Open));
                 string str = reader.ReadToEnd();
                 reader.Close();
-                int h = 0;
                 string _Login=null, _password=null;
                 foreach(var a in str.Split("|"))
                 {
                     _Login = a.Split(",").First();
                     _password = a.Split(",").Take(2).Last();
-                 
+               
                     if (_Login == Login && _password == password)
                     {
                         return View("Views/Home/HomeUser.cshtml");
                     }
-
                     else if (_Login == Login)
                     {
                         ViewData["error"] = @"Неверный пароль";
