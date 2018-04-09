@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -60,7 +61,7 @@ namespace laba3.Models
                 }
             } }
         public string Email { get => _email; set {
-                if (value.Length < 20)
+                if (value.Length < 25)
                 {
                     _email = value;
                 }
@@ -70,7 +71,7 @@ namespace laba3.Models
                 }
             } }
         public string Age { get => _age; set {
-                if (Convert.ToInt32( value) > 0&& Convert.ToInt32(value) < 120)
+                if (Convert.ToInt32( value) > 0 && Convert.ToInt32(value) < 120)
                 {
                     _age = value;
                 }
@@ -91,6 +92,22 @@ namespace laba3.Models
           Age,
            Gn,
            DataTime);
+        }
+
+        public static bool GetUsers(StreamReader reader, string _lg)
+        {
+            string str = reader.ReadToEnd();
+            reader.Close();
+            string _Login = null;
+            foreach (var a in str.Split("|"))
+            {
+                _Login = a.Split(",").First();
+                if (_Login == _lg)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

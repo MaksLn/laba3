@@ -74,7 +74,14 @@ namespace laba3.Control
                 try
                 {
                     Startup.UserDate.Add(new Models.UserData(Login, password, Name, Email, Age, pol, DateTime.Now));
-                    System.IO.File.AppendAllText("Data.txt", new Models.UserData(Login, password, Name, Email, Age, pol, DateTime.Now).ToString());
+                    if (Models.UserData.GetUsers(new StreamReader(new FileStream("data.txt", FileMode.Open)), Login)==true)
+                    {
+                        System.IO.File.AppendAllText("Data.txt", new Models.UserData(Login, password, Name, Email, Age, pol, DateTime.Now).ToString());
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
                 catch (ArgumentNullException e)
                 {
@@ -86,10 +93,16 @@ namespace laba3.Control
                     ViewData["er"] = e.ParamName;
                     return View();
                 }
-                catch(Exception e)
+                catch(FormatException e)
                 {
                     ViewData["color2"] = "red";
                     ViewData["er"] = "Некорректный возрост достуны только символы 0-120";
+                    return View();
+                }
+                catch (Exception e)
+                {
+                    ViewData["color2"] = "red";
+                    ViewData["er"] = "Данный логин уже существует";
                     return View();
                 }
             }
